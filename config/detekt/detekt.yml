@@ -1,0 +1,28 @@
+config:
+  warningsAsErrors: true
+
+processors:
+  exclude: []
+
+console-reports:
+  exclude: []
+
+output-reports:
+  exclude:
+    - 'TxtOutputReport'
+    - 'XmlOutputReport'
+    - 'HtmlOutputReport'
+
+formatting:
+  autoCorrect: false
+  FinalNewline:
+    active: true
+    insertFinalNewLine: true
+  NoWildcardImports:
+    active: false
+
+style:
+  MagicNumber:
+    active: false
+  UnusedPrivateMember:
+    allowedNames: Preview.*
