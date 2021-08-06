@@ -3,6 +3,7 @@ import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
     kotlin("multiplatform")
+    kotlin("plugin.serialization")
     id("org.jetbrains.compose") version "0.5.0-build227"
 }
 
@@ -22,6 +23,8 @@ kotlin {
             dependencies {
                 implementation(project(":core"))
                 implementation(compose.desktop.currentOs)
+                implementation("net.harawata:appdirs:1.2.1")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2")
             }
         }
 
