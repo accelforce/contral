@@ -8,3 +8,5 @@
 /artifacts/
 
 /detekt.xml
+/gradle.xml
+/misc.xml
