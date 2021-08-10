@@ -4,36 +4,18 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import net.accelf.contral.core.config.ConfigurationProvider
 import net.accelf.contral.core.config.LocalConfiguration
 
 @Composable
-fun Main(
-    name: String,
-    configurationProvider: ConfigurationProvider,
-) {
-    CompositionLocalProvider(LocalConfiguration provides configurationProvider) {
-        MaterialTheme {
-            Column {
-                Greeting(name = name)
-                Clicker()
-            }
-        }
-    }
-}
-
-@Composable
-private fun Greeting(name: String) {
+fun Greeting(name: String) {
     Text(text = "Hello $name!")
 }
 
@@ -42,7 +24,7 @@ data class ClickerCount(
 )
 
 @Composable
-private fun Clicker() {
+fun Clicker() {
     val config = LocalConfiguration.current
     val countState = remember { mutableStateOf(config get ClickerCount::count) }
     val setCount: (Int) -> Unit = {

@@ -23,6 +23,9 @@ kotlin {
             dependencies {
                 implementation(project(":core"))
                 implementation(compose.desktop.currentOs)
+                val decomposeVersion = "0.3.1"
+                implementation("com.arkivanov.decompose:decompose:$decomposeVersion")
+                implementation("com.arkivanov.decompose:extensions-compose-jetbrains:$decomposeVersion")
                 implementation("net.harawata:appdirs:1.2.1")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2")
             }
