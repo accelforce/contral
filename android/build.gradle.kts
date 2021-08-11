@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     kotlin("android")
-    id("org.jetbrains.compose") version "0.5.0-build227"
+    id("org.jetbrains.compose") version "1.0.0-alpha3"
 }
 
 android {
@@ -40,10 +40,6 @@ android {
 
     buildFeatures {
         compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.0.0-rc01"
     }
 }
 
