@@ -11,16 +11,16 @@ class Router(
     ctx: ComponentContext,
     defaultRoute: Route,
     routes: Routes,
-): ComponentContext by ctx {
+) : ComponentContext by ctx {
 
-    val router = router(
+    val instance = router(
         initialConfiguration = defaultRoute,
         handleBackButton = true,
     ) { route, ctx ->
         (routes[route.name] ?: PageNotFoundPage)(route, ctx)
     }
 
-    val state = router.state
+    val state = instance.state
 }
 
 val LocalRouter =

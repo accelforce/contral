@@ -1,7 +1,8 @@
 package net.accelf.contral.core
 
 import androidx.compose.material.MaterialTheme
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.decompose.extensions.compose.jetbrains.Children
 import net.accelf.contral.core.config.ConfigurationProvider
@@ -17,7 +18,7 @@ fun Main(
 ) {
     val router = Router(ctx, Route(""), builtinRoutes)
     CompositionLocalProvider(LocalConfiguration provides configurationProvider) {
-        CompositionLocalProvider(LocalRouter provides router.router) {
+        CompositionLocalProvider(LocalRouter provides router.instance) {
             MaterialTheme {
                 Children(router.state) {
                     it.instance()

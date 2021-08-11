@@ -6,4 +6,4 @@ import com.arkivanov.essenty.parcelable.Parcelize
 @Parcelize
 data class Route(
     val name: String,
-): Parcelable
+) : Parcelable

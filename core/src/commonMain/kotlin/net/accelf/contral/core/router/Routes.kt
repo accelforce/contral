@@ -29,8 +29,8 @@ class RoutesBuilder(
 
     fun build(): Routes = routes
 
-    class RouteExistsException(name: String)
-        : IllegalArgumentException("Route $name already registered")
+    class RouteExistsException(name: String) :
+        IllegalArgumentException("Route $name already registered")
 }
 
 fun routesBuilder(
