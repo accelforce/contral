@@ -12,3 +12,4 @@ rootProject.name = "contral"
 include(":android")
 include(":desktop")
 include(":core")
+include(":mastodon")

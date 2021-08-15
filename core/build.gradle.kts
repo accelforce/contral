@@ -13,6 +13,10 @@ kotlin {
     jvm("desktop")
 
     sourceSets {
+        all {
+            languageSettings.useExperimentalAnnotation("kotlin.RequiresOptIn")
+        }
+
         commonMain {
             dependencies {
                 implementation(kotlin("reflect"))
@@ -31,11 +35,30 @@ kotlin {
                 implementation(kotlin("test-common"))
             }
         }
+
+        @Suppress("UNUSED_VARIABLE")
+        val androidMain by getting {
+            dependencies {
+                implementation("com.squareup.okio:okio:3.0.0-alpha.9")
+            }
+        }
+
+        @Suppress("UNUSED_VARIABLE")
+        val desktopMain by getting {
+            dependencies {
+                implementation("com.squareup.okio:okio:3.0.0-alpha.9")
+                implementation("net.harawata:appdirs:1.2.1")
+            }
+        }
     }
 }
 
 android {
     compileSdk = 30
+
+    defaultConfig {
+        minSdk = 23
+    }
 
     sourceSets {
         named("main") {

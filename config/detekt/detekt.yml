@@ -24,5 +24,7 @@ formatting:
 style:
   MagicNumber:
     active: false
+  ReturnCount:
+    active: false
   UnusedPrivateMember:
     allowedNames: Preview.*

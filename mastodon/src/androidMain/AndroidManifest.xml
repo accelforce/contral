@@ -1,0 +1,12 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="net.accelf.contral.mastodon">
+
+    <application
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name">
+
+        <meta-data android:name="contralPlugin" android:value="true" />
+
+    </application>
+
+</manifest>
