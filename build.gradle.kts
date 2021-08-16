@@ -1,5 +1,6 @@
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension
+import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 buildscript {
     repositories {
@@ -31,6 +32,12 @@ allprojects {
 
     dependencies {
         add("detektPlugins", "io.gitlab.arturbosch.detekt:detekt-formatting:1.17.1")
+    }
+
+    afterEvaluate {
+        project.extensions.findByType<KotlinMultiplatformExtension>()?.let {
+            it.sourceSets.removeAll { sourceSet -> sourceSet.name == "androidAndroidTestRelease" }
+        }
     }
 
     extensions.configure(DetektExtension::class.java) {
