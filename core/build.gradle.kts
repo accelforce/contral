@@ -24,9 +24,10 @@ kotlin {
                 implementation("com.arkivanov.decompose:decompose:$decomposeVersion")
                 implementation("com.arkivanov.decompose:extensions-compose-jetbrains:$decomposeVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2")
-                api(compose.runtime)
                 api(compose.foundation)
                 api(compose.material)
+                api(compose.runtime)
+                api(compose.ui)
             }
         }
 

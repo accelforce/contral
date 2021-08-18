@@ -6,7 +6,7 @@ import net.accelf.contral.core.pages.Plugins
 import net.accelf.contral.core.router.routesBuilder
 
 val builtinRoutes = routesBuilder {
-    register("", Home)
+    register("home", Home)
     register("counter", Counter)
     register("plugins", Plugins)
 }.build()

@@ -18,11 +18,11 @@ fun Main(
     ctx: ComponentContext,
     configurationProvider: ConfigurationProvider,
 ) {
-    val router = Router(ctx, Route(""), builtinRoutes)
+    val router = Router(ctx, Route("home"), builtinRoutes)
     val plugins = resolvePlugins()
 
     CompositionLocalProvider(LocalConfiguration provides configurationProvider) {
-        CompositionLocalProvider(LocalRouter provides router.instance) {
+        CompositionLocalProvider(LocalRouter provides router) {
             CompositionLocalProvider(LocalPlugins provides plugins) {
                 MaterialTheme {
                     Children(router.state) {

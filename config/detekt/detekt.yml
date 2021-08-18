@@ -13,6 +13,10 @@ output-reports:
     - 'XmlOutputReport'
     - 'HtmlOutputReport'
 
+complexity:
+  LongParameterList:
+    active: false
+
 formatting:
   autoCorrect: false
   FinalNewline:
@@ -22,6 +26,8 @@ formatting:
     active: false
 
 style:
+  ForbiddenComment:
+    active: false
   MagicNumber:
     active: false
   ReturnCount:
