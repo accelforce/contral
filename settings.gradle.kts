@@ -10,6 +10,7 @@ pluginManagement {
 rootProject.name = "contral"
 
 include(":android")
-include(":desktop")
+include(":config")
 include(":core")
+include(":desktop")
 include(":mastodon")

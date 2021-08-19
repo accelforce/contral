@@ -4,7 +4,6 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     id("kotlin-parcelize")
-    kotlin("plugin.serialization")
     id("org.jetbrains.compose") version "1.0.0-alpha3"
 }
 
@@ -19,11 +18,10 @@ kotlin {
 
         commonMain {
             dependencies {
-                implementation(kotlin("reflect"))
+                implementation(project(":config"))
                 val decomposeVersion = "0.3.1"
                 implementation("com.arkivanov.decompose:decompose:$decomposeVersion")
                 implementation("com.arkivanov.decompose:extensions-compose-jetbrains:$decomposeVersion")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2")
                 api(compose.foundation)
                 api(compose.material)
                 api(compose.runtime)

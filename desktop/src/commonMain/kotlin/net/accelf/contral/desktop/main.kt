@@ -9,7 +9,6 @@ import com.arkivanov.decompose.ExperimentalDecomposeApi
 import com.arkivanov.decompose.extensions.compose.jetbrains.lifecycle.LifecycleController
 import com.arkivanov.essenty.lifecycle.LifecycleRegistry
 import net.accelf.contral.core.Main
-import net.accelf.contral.desktop.config.DesktopConfigurationProvider
 
 @ExperimentalComposeUiApi
 @ExperimentalDecomposeApi
@@ -25,10 +24,7 @@ fun main() {
             onCloseRequest = ::exitApplication,
             state = windowState,
         ) {
-            Main(
-                ctx = DefaultComponentContext(lifecycle),
-                configurationProvider = DesktopConfigurationProvider(),
-            )
+            Main(ctx = DefaultComponentContext(lifecycle))
         }
     }
 }

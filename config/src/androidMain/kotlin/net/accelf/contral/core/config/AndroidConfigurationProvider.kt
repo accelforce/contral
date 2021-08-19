@@ -1,4 +1,4 @@
-package net.accelf.contral.android.config
+package net.accelf.contral.core.config
 
 import android.content.Context
 import androidx.core.content.edit
@@ -6,7 +6,6 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonElement
-import net.accelf.contral.core.config.ConfigurationProvider
 
 class AndroidConfigurationProvider(private val context: Context) : ConfigurationProvider() {
 

@@ -1,11 +1,10 @@
-package net.accelf.contral.desktop.config
+package net.accelf.contral.core.config
 
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.jsonObject
-import net.accelf.contral.core.config.ConfigurationProvider
 import net.harawata.appdirs.AppDirsFactory
 import java.io.File
 import kotlin.io.path.Path
@@ -31,7 +30,7 @@ class DesktopConfigurationProvider : ConfigurationProvider() {
                 return
             }
 
-            file.parentFile.mkdirs()
+            file.parentFile?.mkdirs()
             file.createNewFile()
             emptyMap()
         } else {

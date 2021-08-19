@@ -3,7 +3,6 @@ import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
     kotlin("multiplatform")
-    kotlin("plugin.serialization")
     id("org.jetbrains.compose") version "1.0.0-alpha3"
 }
 
@@ -26,8 +25,6 @@ kotlin {
                 val decomposeVersion = "0.3.1"
                 implementation("com.arkivanov.decompose:decompose:$decomposeVersion")
                 implementation("com.arkivanov.decompose:extensions-compose-jetbrains:$decomposeVersion")
-                implementation("net.harawata:appdirs:1.2.1")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2")
             }
         }
 
