@@ -41,7 +41,7 @@ allprojects {
     }
 
     extensions.configure(DetektExtension::class.java) {
-        config = files("${rootProject.rootDir}/config/detekt/detekt.yml")
+        config = files("${rootProject.rootDir}/detekt.yml")
         buildUponDefaultConfig = true
 
         input = files(input, "src/commonMain/kotlin", "src/commonTest/kotlin")
