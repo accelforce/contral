@@ -51,7 +51,7 @@ val Public: PageComponent = { _, ctx ->
                         .baseUrl(
                             HttpUrl.Builder()
                                 .scheme("https")
-                                .host(domain)
+                                .host(domain.trim())
                                 .build()
                         )
                         .addConverterFactory(GsonConverterFactory.create())
