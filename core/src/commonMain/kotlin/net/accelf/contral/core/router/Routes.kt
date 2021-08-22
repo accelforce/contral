@@ -27,6 +27,10 @@ class RoutesBuilder(
     @JvmName("registerPageComponent")
     fun register(name: String, pageComponent: PageComponent) = register(name, pageComponent.toPage())
 
+    operator fun plusAssign(other: Routes) {
+        other.forEach { (name, page) -> register(name, page) }
+    }
+
     fun build(): Routes = routes
 
     class RouteExistsException(name: String) :

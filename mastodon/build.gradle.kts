@@ -1,16 +1,37 @@
+import org.gradle.jvm.tasks.Jar
+
 plugins {
     kotlin("multiplatform")
     id("com.android.application")
+    id("org.jetbrains.compose") version "1.0.0-alpha3"
 }
 
 kotlin {
     android()
-    jvm()
+    jvm {
+        compilations {
+            val main by getting
+
+            tasks.named<Jar>("jvmJar").configure {
+                from(main.compileDependencyFiles.map { if (it.isDirectory) it else zipTree(it) })
+                duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+            }
+        }
+    }
 
     sourceSets {
+        all {
+            languageSettings.useExperimentalAnnotation("kotlin.RequiresOptIn")
+        }
+
         commonMain {
             dependencies {
                 compileOnly(project(":core"))
+                compileOnly("com.arkivanov.decompose:decompose:0.3.1")
+                val retrofitVersion = "2.9.0"
+                implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
+                implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.2.1")
             }
         }
 

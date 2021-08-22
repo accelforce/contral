@@ -9,4 +9,4 @@ val builtinRoutes = routesBuilder {
     register("home", Home)
     register("counter", Counter)
     register("plugins", Plugins)
-}.build()
+}

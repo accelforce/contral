@@ -17,8 +17,11 @@ import net.accelf.contral.core.router.Router
 fun Main(
     ctx: ComponentContext,
 ) {
-    val router = Router(ctx, Route("home"), builtinRoutes)
     val plugins = resolvePlugins()
+    val routes = builtinRoutes.apply {
+        plugins.map { it.routes }.forEach { plusAssign(it) }
+    }.build()
+    val router = Router(ctx, Route("home"), routes)
 
     CompositionLocalProvider(LocalConfiguration provides configurationProvider()) {
         CompositionLocalProvider(LocalRouter provides router) {

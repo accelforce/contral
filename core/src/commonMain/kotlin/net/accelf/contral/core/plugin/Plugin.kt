@@ -8,11 +8,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.ComponentContext
+import net.accelf.contral.core.router.Routes
 import net.accelf.contral.core.ui.Renderable
 
 data class Plugin(
     val id: String,
     val name: String,
+    val routes: Routes,
 ) : Renderable {
 
     @Composable
