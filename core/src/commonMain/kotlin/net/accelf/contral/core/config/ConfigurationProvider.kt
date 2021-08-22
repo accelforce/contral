@@ -5,7 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.staticCompositionLocalOf
 
 @Composable
-expect fun configurationProvider(): ConfigurationProvider
+internal expect fun configurationProvider(): ConfigurationProvider
 
 val LocalConfiguration =
     staticCompositionLocalOf<ConfigurationProvider> { error("Configuration not set") }

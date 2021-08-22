@@ -4,4 +4,4 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 
 @Composable
-actual fun configurationProvider(): ConfigurationProvider = AndroidConfigurationProvider(LocalContext.current)
+internal actual fun configurationProvider(): ConfigurationProvider = AndroidConfigurationProvider(LocalContext.current)

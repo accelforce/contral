@@ -11,7 +11,7 @@ import com.arkivanov.decompose.ComponentContext
 import net.accelf.contral.core.router.Routes
 import net.accelf.contral.core.ui.Renderable
 
-data class Plugin(
+internal data class Plugin(
     val id: String,
     val name: String,
     val routes: Routes,

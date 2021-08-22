@@ -5,7 +5,7 @@ import net.accelf.contral.core.pages.Home
 import net.accelf.contral.core.pages.Plugins
 import net.accelf.contral.core.router.routesBuilder
 
-val builtinRoutes = routesBuilder {
+internal val builtinRoutes = routesBuilder {
     register("home", Home)
     register("counter", Counter)
     register("plugins", Plugins)

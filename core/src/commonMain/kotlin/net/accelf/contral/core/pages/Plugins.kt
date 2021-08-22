@@ -6,7 +6,7 @@ import androidx.compose.ui.Modifier
 import net.accelf.contral.core.plugin.LocalPlugins
 import net.accelf.contral.core.router.PageComponent
 
-val Plugins: PageComponent = { _, ctx ->
+internal val Plugins: PageComponent = { _, ctx ->
     Column(
         modifier = Modifier.fillMaxSize(),
     ) {

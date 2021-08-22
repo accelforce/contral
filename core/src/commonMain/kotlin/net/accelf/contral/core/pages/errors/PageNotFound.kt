@@ -8,4 +8,4 @@ private val PageNotFound: PageComponent = { route, _ ->
     Text("Page not found: ${route.name}")
 }
 
-val PageNotFoundPage = PageNotFound.toPage()
+internal val PageNotFoundPage = PageNotFound.toPage()

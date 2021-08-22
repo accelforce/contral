@@ -11,7 +11,7 @@ import java.net.URLClassLoader
 
 @OptIn(ExperimentalFileSystem::class)
 @Composable
-actual fun resolvePlugins(): List<Plugin> {
+internal actual fun resolvePlugins(): List<Plugin> {
     val dir = (AppDirsFactory.getInstance()
         .getUserDataDir("contral", "alpha", "accelf", false)
         .toPath() / "plugins")

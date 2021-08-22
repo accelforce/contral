@@ -7,7 +7,7 @@ import net.accelf.contral.core.router.PageComponent
 import net.accelf.contral.core.ui.Clicker
 import net.accelf.contral.core.ui.Greeting
 
-val Counter: PageComponent = { _, _ ->
+internal val Counter: PageComponent = { _, _ ->
     Column(
         modifier = Modifier.fillMaxSize(),
     ) {

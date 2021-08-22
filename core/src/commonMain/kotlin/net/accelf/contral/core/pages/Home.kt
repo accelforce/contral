@@ -20,7 +20,7 @@ import net.accelf.contral.core.router.Route
 import net.accelf.contral.core.ui.Greeting
 import net.accelf.contral.core.ui.components.Dropdown
 
-val Home: PageComponent = { _, _ ->
+internal val Home: PageComponent = { _, _ ->
     val router = LocalRouter.current
 
     Column(

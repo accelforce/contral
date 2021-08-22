@@ -12,7 +12,7 @@ import okio.openZip
 
 @OptIn(ExperimentalFileSystem::class)
 @Composable
-actual fun resolvePlugins(): List<Plugin> {
+internal actual fun resolvePlugins(): List<Plugin> {
     val context = LocalContext.current
     val apkPaths = context.packageManager
         .getInstalledApplications(PackageManager.GET_META_DATA)
