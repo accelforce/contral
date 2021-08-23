@@ -1,12 +1,15 @@
 package net.accelf.contral.mastodon.models
 
-import androidx.compose.material.Text
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalUriHandler
 import com.arkivanov.decompose.ComponentContext
 import kotlinx.datetime.Instant
 import net.accelf.contral.core.ui.Renderable
-
-typealias Html = String
+import net.accelf.contral.mastodon.ui.Html
+import net.accelf.contral.mastodon.ui.HtmlAnnotations
+import net.accelf.contral.mastodon.ui.HtmlText
 
 data class Status(
     val id: String,
@@ -16,8 +19,20 @@ data class Status(
 
     @Composable
     override fun render(ctx: ComponentContext) {
-        Text(
-            text = content,
-        )
+        val uriHandler = LocalUriHandler.current
+
+        HtmlText(
+            html = content,
+            modifier = Modifier.fillMaxWidth(),
+        ) { annotations ->
+            annotations.forEach { annotation ->
+                when (annotation.tag) {
+                    HtmlAnnotations.URL.tag -> {
+                        uriHandler.openUri(annotation.item)
+                        return@HtmlText
+                    }
+                }
+            }
+        }
     }
 }

@@ -32,6 +32,7 @@ kotlin {
                 implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
                 implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.2.1")
+                implementation("org.jsoup:jsoup:1.14.2")
             }
         }
 
