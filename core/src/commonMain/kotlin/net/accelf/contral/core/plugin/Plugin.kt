@@ -9,12 +9,14 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.ComponentContext
 import net.accelf.contral.core.router.Routes
+import net.accelf.contral.core.timelines.TimelineHandlers
 import net.accelf.contral.core.ui.Renderable
 
 internal data class Plugin(
     val id: String,
     val name: String,
     val routes: Routes,
+    val timelineHandlers: TimelineHandlers,
 ) : Renderable {
 
     @Composable

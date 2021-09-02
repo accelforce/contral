@@ -49,7 +49,10 @@ val Navigator: PageComponent = { route, _ ->
             modifier = Modifier.fillMaxWidth(),
         ) {
             fun navigate() {
-                router.push(Route("public", mapOf("domain" to domain)))
+                router.push(Route("timeline", mapOf(
+                    "handler" to "mastodon:public",
+                    "domain" to domain,
+                )))
             }
 
             OutlinedTextField(

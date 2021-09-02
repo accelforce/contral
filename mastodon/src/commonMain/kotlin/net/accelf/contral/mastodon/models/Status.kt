@@ -6,7 +6,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalUriHandler
 import com.arkivanov.decompose.ComponentContext
 import kotlinx.datetime.Instant
-import net.accelf.contral.core.ui.Renderable
+import net.accelf.contral.core.timelines.TimelineItem
 import net.accelf.contral.mastodon.ui.Html
 import net.accelf.contral.mastodon.ui.HtmlAnnotations
 import net.accelf.contral.mastodon.ui.HtmlText
@@ -15,7 +15,9 @@ data class Status(
     val id: String,
     val content: Html,
     val createdAt: Instant,
-) : Renderable {
+) : TimelineItem {
+
+    override val key: String = id
 
     @Composable
     override fun render(ctx: ComponentContext) {
