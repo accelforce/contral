@@ -23,14 +23,14 @@ fun Main(
     }.build()
     val router = Router(ctx, Route("home"), routes)
 
-    CompositionLocalProvider(LocalConfiguration provides configurationProvider()) {
-        CompositionLocalProvider(LocalRouter provides router) {
-            CompositionLocalProvider(LocalPlugins provides plugins) {
-                MaterialTheme {
-                    Children(router.state) {
-                        it.instance()
-                    }
-                }
+    CompositionLocalProvider(
+        LocalConfiguration provides configurationProvider(),
+        LocalRouter provides router,
+        LocalPlugins provides plugins,
+    ) {
+        MaterialTheme {
+            Children(router.state) {
+                it.instance()
             }
         }
     }
