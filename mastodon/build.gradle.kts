@@ -27,12 +27,15 @@ kotlin {
         commonMain {
             dependencies {
                 compileOnly(project(":core"))
+                implementation("com.alialbaali.kamel:kamel-image:0.2.2")
                 compileOnly("com.arkivanov.decompose:decompose:0.3.1")
                 val retrofitVersion = "2.9.0"
                 implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
                 implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+                implementation("io.ktor:ktor-client-okhttp:1.6.3")
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.2.1")
                 implementation("org.jsoup:jsoup:1.14.2")
+                api(compose.materialIconsExtended)
             }
         }
 
