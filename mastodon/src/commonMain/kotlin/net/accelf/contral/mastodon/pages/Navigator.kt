@@ -10,10 +10,10 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.SnackbarHostState
 import androidx.compose.material.Text
 import androidx.compose.material.rememberScaffoldState
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
@@ -23,7 +23,6 @@ import androidx.compose.ui.input.key.key
 import androidx.compose.ui.input.key.onKeyEvent
 import androidx.compose.ui.unit.dp
 import com.arkivanov.decompose.push
-import kotlinx.coroutines.launch
 import net.accelf.contral.core.router.LocalRouter
 import net.accelf.contral.core.router.PageComponent
 import net.accelf.contral.core.router.Route
@@ -35,9 +34,7 @@ val Navigator: PageComponent = { route, _ ->
     val snackbarHostState = remember { SnackbarHostState() }
 
     route.params["error"]?.let { error ->
-        val scope = rememberCoroutineScope()
-
-        scope.launch {
+        LaunchedEffect(error) {
             snackbarHostState.showSnackbar(error)
         }
     }

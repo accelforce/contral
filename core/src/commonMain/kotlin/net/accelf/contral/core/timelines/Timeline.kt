@@ -12,21 +12,18 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.SnackbarDuration
 import androidx.compose.material.SnackbarHostState
 import androidx.compose.material.rememberScaffoldState
-import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import kotlinx.coroutines.launch
 import net.accelf.contral.core.router.PageComponent
 
 val Timeline: PageComponent = { route, ctx ->
     val snackbarHostState = remember { SnackbarHostState() }
-    val scope = rememberCoroutineScope()
     val handlers = LocalTimelineHandlers.current
 
     Scaffold(
@@ -51,33 +48,29 @@ val Timeline: PageComponent = { route, ctx ->
 
                     if (items.isEmpty()) {
                         item {
-                            SideEffect {
-                                scope.launch {
-                                    items = runCatching { handler.initialFetch() }
-                                        .getOrElse {
-                                            snackbarHostState.showSnackbar(
-                                                message = "error loading timeline: ${it.message}",
-                                                duration = SnackbarDuration.Long,
-                                            )
-                                            return@launch
-                                        }
-                                }
+                            LaunchedEffect(Unit) {
+                                items = runCatching { handler.initialFetch() }
+                                    .getOrElse {
+                                        snackbarHostState.showSnackbar(
+                                            message = "error loading timeline: ${it.message}",
+                                            duration = SnackbarDuration.Long,
+                                        )
+                                        return@LaunchedEffect
+                                    }
                             }
                         }
                     } else {
                         item {
-                            SideEffect {
-                                scope.launch {
-                                    val old = runCatching { handler.fetchNext(items.last()) }
-                                        .getOrElse {
-                                            snackbarHostState.showSnackbar(
-                                                message = "error loading timeline: ${it.message}",
-                                                duration = SnackbarDuration.Long,
-                                            )
-                                            return@launch
-                                        }
-                                    items = items + old
-                                }
+                            LaunchedEffect(Unit) {
+                                val old = runCatching { handler.fetchNext(items.last()) }
+                                    .getOrElse {
+                                        snackbarHostState.showSnackbar(
+                                            message = "error loading timeline: ${it.message}",
+                                            duration = SnackbarDuration.Long,
+                                        )
+                                        return@LaunchedEffect
+                                    }
+                                items = items + old
                             }
 
                             Row(
@@ -91,13 +84,13 @@ val Timeline: PageComponent = { route, ctx ->
                         }
                     }
                 }
-            } ?: scope.launch {
+            } ?: LaunchedEffect(Unit) {
                 snackbarHostState.showSnackbar(
                     message = "handler $handlerName not found",
                     duration = SnackbarDuration.Indefinite,
                 )
             }
-        } ?: scope.launch {
+        } ?: LaunchedEffect(Unit) {
             snackbarHostState.showSnackbar(
                 message = "handler not specified",
                 duration = SnackbarDuration.Indefinite,
