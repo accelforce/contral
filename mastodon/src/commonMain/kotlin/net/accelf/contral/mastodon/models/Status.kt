@@ -17,7 +17,8 @@ data class Status(
     val createdAt: Instant,
 ) : TimelineItem {
 
-    override val key: String = id
+    override val key: String
+        get() = id
 
     @Composable
     override fun render(ctx: ComponentContext) {
