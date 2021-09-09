@@ -49,7 +49,7 @@ kotlin {
 }
 
 android {
-    compileSdk = 30
+    compileSdk = 31
 
     defaultConfig {
         applicationId = "net.accelf.contral.mastodon"
