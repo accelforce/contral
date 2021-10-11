@@ -13,7 +13,7 @@ buildscript {
         val ktVersion = "1.5.21"
         classpath(kotlin("gradle-plugin", ktVersion))
         classpath(kotlin("serialization", ktVersion))
-        classpath("com.android.tools.build:gradle:7.0.2")
+        classpath("com.android.tools.build:gradle:7.1.0-alpha13")
         classpath("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.17.1")
     }
 }
