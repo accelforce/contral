@@ -36,7 +36,12 @@ allprojects {
 
     afterEvaluate {
         project.extensions.findByType<KotlinMultiplatformExtension>()?.let {
-            it.sourceSets.removeAll { sourceSet -> sourceSet.name == "androidAndroidTestRelease" }
+            it.sourceSets.removeAll { sourceSet -> sourceSet.name in listOf(
+                "androidAndroidTestRelease",
+                "androidTestFixtures",
+                "androidTestFixturesDebug",
+                "androidTestFixturesRelease",
+            ) }
         }
     }
 
