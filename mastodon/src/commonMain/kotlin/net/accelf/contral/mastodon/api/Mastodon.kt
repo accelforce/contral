@@ -9,5 +9,6 @@ interface Mastodon {
     @GET("/api/v1/timelines/public")
     suspend fun getPublicTimeline(
         @Query("max_id") maxId: String = "",
+        @Query("min_id") minId: String = "",
     ): List<Status>
 }

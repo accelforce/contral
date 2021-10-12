@@ -1,5 +1,3 @@
-import org.jetbrains.compose.compose
-
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
@@ -22,6 +20,7 @@ kotlin {
                 val decomposeVersion = "0.3.1"
                 implementation("com.arkivanov.decompose:decompose:$decomposeVersion")
                 implementation("com.arkivanov.decompose:extensions-compose-jetbrains:$decomposeVersion")
+                implementation("net.accelf.accompanist:accompanist-swiperefresh:0.19.0")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1")
                 api(compose.foundation)
                 api(compose.material)

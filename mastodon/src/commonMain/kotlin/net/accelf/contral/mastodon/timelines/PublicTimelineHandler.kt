@@ -24,6 +24,9 @@ class PublicTimelineHandler(domain: String) : TimelineHandler {
     override suspend fun initialFetch(): List<TimelineItem> =
         mastodon.getPublicTimeline()
 
-    override suspend fun fetchNext(oldestItem: TimelineItem): List<TimelineItem> =
+    override suspend fun fetchTop(latestItem: TimelineItem): List<TimelineItem> =
+        mastodon.getPublicTimeline(minId = latestItem.key)
+
+    override suspend fun fetchBottom(oldestItem: TimelineItem): List<TimelineItem> =
         mastodon.getPublicTimeline(maxId = oldestItem.key)
 }
