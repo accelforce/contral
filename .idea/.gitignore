@@ -8,5 +8,6 @@
 /artifacts/
 
 /detekt.xml
+/deploymentTargetDropDown.xml
 /gradle.xml
 /misc.xml
