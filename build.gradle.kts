@@ -61,7 +61,7 @@ allprojects {
     }
 
     tasks.withType<Detekt>().configureEach {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
 }
 
